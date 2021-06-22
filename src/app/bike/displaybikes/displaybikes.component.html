@@ -1,0 +1,35 @@
+
+
+<table class="table table-striped">
+    <div *ngIf="loading==true">Loading......</div>
+    <thead>
+        <tr>
+            <th>BikeId</th>
+            <th>Bike name</th>
+            <th>Bike Model</th>
+            <th>BikeType</th>
+            <th>BikeRPM</th>
+            <th>Bike Description</th>
+            <th>BikePrice</th>
+            <th>BikeEmissionType</th>
+            <th>Action</th>
+        </tr>
+        
+    </thead>
+    <tbody>
+        <tr *ngFor="let dataItem of bikeList">
+            <td>{{dataItem.bikeId}}</td>     
+            <td>{{dataItem.bikeName}}</td>
+            <td>{{dataItem.bikeModel}}</td>
+            <td>{{dataItem.biketype}}</td>
+            <td>{{dataItem.bikeRPM}}</td>
+            <td>{{dataItem.bikeDescription}}</td>
+            <td>{{dataItem.bikePrice}}</td>
+            <td>{{dataItem.bikeEmissionType}}</td>
+            <td> <button type="button"  style="background-color: rgb(109, 128, 233);color:white" class="btn btn-light mr-1" (click)="editBike(dataItem.bikeId)">Edit</button>|
+              <button type="button"  style="background-color: red;color:white" class="btn btn-light mr-1" (click)="deleteBike(dataItem.bikeId)">Delete</button></td>
+        </tr>
+
+    </tbody>
+</table>
+<!-- </ng-template> -->

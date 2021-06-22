@@ -1,0 +1,75 @@
+<div class="container">
+    <form name="form" (ngSubmit)="form.form.valid && UpdateBike(bike)" #form="ngForm" novalidate>
+<div class="row">
+    
+    <div class="col-md-6">
+        <input type="hidden"   [(ngModel)]="bike.bikeId">
+        <label for="BikeName">Bike Name</label>
+    
+        <div>
+            <input type="text" class="form-control"  #bikeName="ngModel" [(ngModel)]="bike.bikeName"  required name="BikeName"
+            [ngClass]="{ 'is-invalid': form.submitted && bikeName.invalid }"  placeholder="Enter Bike Name">
+                <span class="invalid-feedback" *ngIf="form.submitted&&bikeName.invalid">
+                    <p *ngIf="bikeName.errors?.required">bike Name is required</p>
+                </span>
+        </div>
+
+        <label for="BikeModel">Bike Model</label>
+        <div>
+            <input type="text" class="form-control" [(ngModel)]="bike.bikeModel" name="BikeModel"  #bikeModel="ngModel"
+            [ngClass]="{ 'is-invalid': form.submitted && bikeModel.invalid }"  placeholder="Enter Bike Model">
+            <span class="invalid-feedback" *ngIf="form.submitted&&bikeModel.invalid">
+                <p *ngIf="bikeModel.errors?.required"> bikeModel is required</p>
+            </span>
+        </div>
+
+        <label for="BikeName">Bike price</label>
+        <div>
+            <input type="number" class="form-control" [(ngModel)]="bike.bikePrice"  #bikePrice="ngModel" required name="BikeName"
+            [ngClass]="{ 'is-invalid': form.submitted && bikePrice.invalid }"    placeholder="Enter Bike Price">
+                <span class="invalid-feedback" *ngIf="form.submitted&&bikePrice.invalid">
+                    <p *ngIf="bikePrice.errors?.required"> bikePrice is required</p>
+                </span>
+        </div>
+        <label for="BikeName">Bike BikeEmissionType</label>
+        <div>
+            <input type="text" class="form-control" [(ngModel)]="bike.bikeEmissionType"  #bikeEtype="ngModel" required name="BikeName"
+            [ngClass]="{ 'is-invalid': form.submitted && bikeEtype.invalid }"       placeholder="Enter Bike BikeEmissionType">
+            <span class="invalid-feedback" *ngIf="form.submitted&&bikeEtype.invalid">
+                <p *ngIf="bikeEtype.errors?.required"> BikeEmissionType is required</p>
+            </span>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <label for="BikeYtpel">Bike Type</label>
+        <div>
+            <input type="text" class="form-control" #bikeType="ngModel" required [(ngModel)]="bike.biketype" name="BikeType"
+            [ngClass]="{ 'is-invalid': form.submitted && bikeType.invalid }"    placeholder="Enter Bike Type">
+            <span class="invalid-feedback" *ngIf="form.submitted&&bikeType.invalid">
+                <p *ngIf="bikeType.errors?.required"> bike Type is required</p>
+            </span>
+        </div>
+
+        <label for="BikeModel">Bike RPM</label>
+        <div>
+            <input type="number" class="form-control"  #bikeRPM="ngModel"  required [(ngModel)]="bike.bikeRPM" name="BikeRPM"
+            [ngClass]="{ 'is-invalid': form.submitted && bikeRPM.invalid }"  placeholder="Enter Bike RPM">
+            <span class="invalid-feedback" *ngIf="form.submitted&&bikeRPM.invalid">
+                <p *ngIf="bikeRPM.errors?.required"> bikeRPM is required</p>
+            </span>
+        </div>
+        <label for="BikeModel">Bike Description</label>
+        <div>
+            <textarea class="form-control" style="height:140px ;"  #bikeD="ngModel" required [(ngModel)]="bike.bikeDescription" name="BikeDescription"
+            [ngClass]="{ 'is-invalid': form.submitted && bikeD.invalid }"   placeholder="Enter Bike Description"></textarea>
+            <span class="invalid-feedback" *ngIf="form.submitted&&bikeD.invalid">
+                <p *ngIf="bikeD.errors?.required"> bike Description is required</p>
+            </span>
+        </div>
+    </div>
+<div style="margin-left: 45%;padding: 10px;">
+    <button type="submit" [disabled]="form.invalid" class="btn btn-success" >Update Bike </button>
+</div>
+</div>
+</form>
+</div>
